@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="todolist.js" defer></script>
+    <style>
+        .error {
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+
+        .empty {
+            display: none;
+            color: #999;
+        }
+
+        .delete {
+            margin-left: 0.5em;
+        }
+
+        #count {
+            font-weight: bold;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li:before {
+            content: "👉 ";
+        }
+    </style>
+</head>
+<body>
+<h1>Todolist JS ✅</h1>
+
+<form>
+    <label for="task">Task</label>
+    <input type="text" id="task">
+    <button type="submit">➕ Add</button>
+</form>
+
+<p class="error"></p>
+
+<p class="empty">🍻 All tasks done!</p>
+
+<p class="counter"><span id="count">X</span> tasks</p>
+
+<ul id="tasks"></ul>
+    
+</body>
+</html>

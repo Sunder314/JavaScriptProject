@@ -1,0 +1,130 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    background: linear-gradient(to bottom, #1a1a1a, #2c2c2c);
+    min-height: 100vh;
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ff3333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Form styles */
+form {
+    background: linear-gradient(to bottom, #2c2c2c, #3c3c3c);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #4c4c4c;
+    border-radius: 3px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+button {
+    background: linear-gradient(to bottom, #ff3333, #cc0000);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ff4d4d, #e60000);
+}
+
+/* Error message styles */
+.error, .err {
+    color: #ff6666;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* List styles */
+#eleves {
+    list-style-type: none;
+    background: linear-gradient(to bottom, #2c2c2c, #3c3c3c);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+#div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: rgba(255, 51, 51, 0.1);
+    border-radius: 3px;
+}
+
+#checkb {
+    margin-right: 8px;
+}
+
+/* Counter styles */
+#count {
+    font-weight: bold;
+    color: #ff3333;
+}
+
+/* Message styles */
+.mess {
+    display: block;
+    text-align: center;
+    color: #999;
+    margin-top: 8px;
+}
+
+/* Chosen student styles */
+#choix {
+    font-weight: bold;
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Compact layout adjustments */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+form, #eleves {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+

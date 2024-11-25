@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="coursDOM.js" defer></script> <!-- defer permet d'attendre que le DOM soit chargé avant d'exécuter le script -->
+    <!-- <script src="coursDOM1.js" async></script> async permet de charger le script le plus léger le plus vite possible -->
+    <style>
+        .alert {
+            background-color: aqua;
+            color: black;
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Title</h1>
+
+    <h1>Titr 222</h1>
+    <h2>Subtitle</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <!-- <script>
+        console.log(document.querySelector("h2")); // affiche le premier h2 trouvé
+    </script> -->
+    <form action="" method="POST"> <!-- Création d'un formulaire -->
+        <label for="email">Email</label> <!-- label pour le champ email -->
+        <input type ="email" name="email" id="email"></input> <!-- input pour le champ email -->
+        <button type="submit">Submmit</button> <!-- button pour le bouton submit -->
+    </form> 
+    <div class="alert">Alert</div>
+</body>
+</html>

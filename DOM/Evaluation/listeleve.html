@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation DOM | Eleve au tableau</title>
+    <link rel="stylesheet" href="lstelv.css">
+    <script src="List_eleve_tableau.js" defer></script>
+</head>
+<body>
+    <h1>Au Tableau</h1>
+
+    <form>
+        <label for="eleve">Eleve</label>
+        <input type="text" id="eleve">
+        <button type="submit">Add</button>
+    </form>
+
+    <p class="error"></p>
+
+    <button id="reset">Effacer tout les éleves</button>
+
+    <h2 class="counteur">Liste des éleves (<span id="count">0</span>)</h2>
+    
+
+    <ul id="eleves"></ul>
+    
+    <button id="suppreleve">Supprimer l'éleve</button>
+
+    <h1>Selection de l'éleves</h1>
+
+    <p class="err"></p>
+    <p id = "choix"></p>
+    
+
+    <button id="choixeleve">Choisir éleve</button> 
+    <button id="reschoix">Réinisialiser éléve choisi</button>
+
+
+    
+</body>
+</html>

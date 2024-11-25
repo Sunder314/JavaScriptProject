@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="csstodoliste.css">
+    <script src="todolist.js" defer></script>
+
+</head>
+<body>
+    <main class="container">
+    
+    <h1>Todolist</h1>
+    <p class="counter"><span id="nombre"></span>Tasks</p>
+<form>
+    <label for="task"></label>
+    <input type="text" id="task" placeholder="Entrer votre tache" >
+    <button type="submit">Add</button> 
+</form>
+<form><button type="submit" id="del">Rage quitt</button></form>
+
+<ul id="tasks">
+</ul>
+
+<button onclick="deleteSelectedTasks()">Supprimer les taches</button>
+</main>
+
+</body>
+</html>

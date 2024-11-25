@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="recup.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .error {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Article</h1>
+<form action="" method="post" id="FormArticle"> <!--crée un formulaire-->
+
+    <label for="title">Article name</label>
+    <input type="text" id="name" placeholder="Enter the article name"></input>
+    <input type="text" id="description" placeholder="Enter the article description"></input>
+    <input type="float" id="price" placeholder="Enter the article price"></input>
+    <input type="int" id="quantity" placeholder="Enter the article quantity"></input>
+
+
+    <button type="submit">Submit</button>
+</form>
+
+<p class="error" style="display: none"></p>
+
+<ul id="article"></ul>
+</body>
+</html>>
