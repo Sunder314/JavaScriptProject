@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixela API Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="navbar requires-auth">
+            <ul>
+                <li><a href="#" id="userTab">Gestion Utilisateur</a></li>
+                <li><a href="#" id="graphTab">Gestion des Graphiques</a></li>
+                <li><a href="#" id="pixelTab">Gestion des Pixels</a></li>
+                <li><a href="#" id="webhookTab">Gestion des Webhooks</a></li>
+            </ul>
+        </div>
+        <!-- Message d'alerte -->
+        <div id="message"></div>
+
+        <!-- Section Login/Logout -->
+        <div id="loginSection" class="login-section">
+            <form id="loginForm">
+                <h3>Connexion</h3>
+                <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="loginToken" placeholder="Token" required>
+                <button type="submit">Se connecter</button>
+            </form>
+
+            <br>
+
+            <!-- Création d'utilisateur -->
+            <form id="createUserForm" class="form-section">
+            <h3>Créer un utilisateur</h3>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="token" placeholder="Token" required>
+                <label>
+                    <input type="checkbox" id="agreeTerms" required>
+                    J'accepte les conditions d'utilisation
+                </label>
+            </div>
+            <button type="submit">Créer</button>
+            </form>
+        </div>
+
+        
+
+
+
+        <div id="loggedInSection" class="logged-in-section" style="display: none;">
+            <div class="user-info">
+                <span id="currentUser"></span>
+                <button id="logoutBtn">Déconnexion</button>
+            </div>
+        </div>
+
+        <!-- Section Utilisateur -->
+        <section id="user" class="tab-content active requires-auth">
+            <h2>Gestion Utilisateur</h2>
+
+            <!-- Mise à jour d'utilisateur -->
+            <form id="updateUserForm" class="form-section">
+                <h3>Mettre à jour l'utilisateur</h3>
+                <div class="form-group">
+                    <input type="text" id="updateUsername" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="updateToken" placeholder="Nouveau token" required>
+                    <input type="password" id="currentToken" placeholder="Token actuel" required>
+                </div>
+                <button type="submit">Mettre à jour</button>
+            </form>
+
+            <!-- Suppression d'utilisateur -->
+            <form id="deleteUserForm" class="form-section">
+                <h3>Supprimer l'utilisateur</h3>
+                <div class="form-group">
+                    <input type="text" id="deleteUsername" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="deleteToken" placeholder="Token" required>
+                </div>
+                <button type="submit" class="danger-btn">Supprimer</button>
+            </form>
+        </section>
+
+        <!-- Section Graphiques -->
+        <section id="graph" class="tab-content requires-auth">
+            <h2>Gestion des Graphiques</h2>
+            
+            <!-- Création de graphique -->
+            <form id="createGraphForm" class="form-section">
+                <h3>Créer un graphique</h3>
+                <div class="form-group">
+                    <input type="text" id="graphId" placeholder="ID du graphique (lettres minuscules, chiffres, tirets)" 
+                           pattern="[a-z0-9-]+" maxlength="16" required>
+                    <small>Maximum 16 caractères, uniquement lettres minuscules, chiffres et tirets</small>
+                    
+                    <input type="text" id="graphName" placeholder="Nom du graphique" 
+                           maxlength="200" required>
+                    <small>Maximum 200 caractères</small>
+                    
+                    <select id="graphType" required>
+                        <option value="int">Entier</option>
+                        <option value="float">Décimal</option>
+                    </select>
+                    
+                    <select id="graphColor" required>
+                        <option value="shibafu">Vert</option>
+                        <option value="momiji">Rouge</option>
+                        <option value="sora">Bleu</option>
+                        <option value="ichou">Jaune</option>
+                        <option value="ajisai">Violet</option>
+                        <option value="kuro">Noir</option>
+                    </select>
+                </div>
+                <button type="submit">Créer le graphique</button>
+            </form>
+
+            <!-- Liste des graphiques -->
+            <div id="graphList" class="graph-list">
+                <h3>Mes graphiques</h3>
+                <div class="graph-container"></div>
+            </div>
+        </section>
+
+        <!-- Section Pixels -->
+        <section id="pixel" class="tab-content requires-auth">
+            <h2>Gestion des Pixels</h2>
+            
+            <!-- Ajout de pixel -->
+            <form id="postPixelForm" class="form-section">
+                <h3>Ajouter un pixel</h3>
+                <div class="form-group">
+                    <input type="text" id="pixelGraphId" placeholder="ID du graphique" required>
+                    <input type="date" id="pixelDate" required>
+                    <input type="number" id="pixelQuantity" placeholder="Quantité" required step="any">
+                </div>
+                <button type="submit">Ajouter</button>
+            </form>
+
+            <!-- Suppression de pixel -->
+            <form id="deletePixelForm" class="form-section">
+                <h3>Supprimer un pixel</h3>
+                <div class="form-group">
+                    <input type="text" id="deletePixelGraphId" placeholder="ID du graphique" required>
+                    <input type="date" id="deletePixelDate" required>
+                </div>
+                <button type="submit" class="danger-btn">Supprimer</button>
+            </form>
+
+        </section>
+
+        <!-- Section Webhooks -->
+        <section id="webhook" class="tab-content requires-auth">
+            <h2>Gestion des Webhooks</h2>
+            
+            <!-- Création de webhook -->
+            <form id="createWebhookForm" class="form-section">
+                <h3>Créer un webhook</h3>
+                <div class="form-group">
+                    <input type="text" id="webhookGraphId" placeholder="ID du graphique" required>
+                    <select id="webhookType" required>
+                        <option value="increment">Incrémenter</option>
+                        <option value="decrement">Décrémenter</option>
+                    </select>
+                </div>
+                <button type="submit">Créer</button>
+            </form>
+
+            <!-- Liste des webhooks -->
+            <div id="webhookList" class="webhook-list">
+                <h3>Mes webhooks</h3>
+                <div class="webhook-container"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fenêtre modale de confirmation -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmation</h3>
+            <p id="confirmMessage"></p>
+            <div class="button-group">
+                <button id="confirmYes">Oui</button>
+                <button id="confirmNo">Non</button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
